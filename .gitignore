@@ -24,6 +24,7 @@ Thumbs.db
 *.swo
 .vscode/
 .idea/
+.junie/
 
 # Logs and temp files
 *.log
