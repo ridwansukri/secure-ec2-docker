@@ -1,0 +1,27 @@
+# =========================================
+# Terraform Variables Example File
+# =========================================
+# Copy this file to terraform.tfvars and modify values as needed
+# This example file is safe to commit to version control
+
+# AWS Configuration
+aws_region = "us-east-2"  # AWS region for resource deployment
+
+# Project Configuration
+project_name = "secure-docker-demo"  # Name used for resource naming convention
+environment  = "dev"                 # Environment: dev, staging, or prod
+
+# Network Configuration
+vpc_cidr             = "10.0.0.0/16"   # CIDR block for VPC
+public_subnet_cidr   = "10.0.1.0/24"   # CIDR block for public subnet (NAT Gateway)
+private_subnet_cidr  = "10.0.2.0/24"   # CIDR block for private subnet (EC2 instance)
+
+# EC2 Instance Configuration
+instance_type     = "t2.micro"  # EC2 instance type
+root_volume_size  = 20           # Root EBS volume size in GB
+
+# Monitoring Configuration
+enable_detailed_monitoring = true  # Enable detailed CloudWatch monitoring
+
+# Backup Configuration
+backup_retention_days = 7  # Number of days to retain automated backups

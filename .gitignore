@@ -1,0 +1,31 @@
+# Terraform local state and working directories (ignore in any folder)
+**/.terraform/
+
+# Keep the lockfile committed (best practice)
+# .terraform.lock.hcl is intentionally NOT ignored
+
+# Terraform state/plan artifacts
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate.backup
+*.tfplan
+tfplan
+crash.log
+
+# Local variable files (do not commit personal settings/secrets)
+# Ignore tfvars everywhere, but allow examples
+*.tfvars
+!*.tfvars.example
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Logs and temp files
+*.log
+logs/
+.tmp/

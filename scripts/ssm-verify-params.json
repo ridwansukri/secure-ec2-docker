@@ -1,0 +1,25 @@
+{
+  "commands": [
+    "echo '==== Security Verification: Docker & IMDSv2 ===='",
+    "echo 'Date: ' $(date)",
+    "echo '--- OS Release ---'; cat /etc/system-release || cat /etc/os-release",
+    "echo",
+    "echo '--- Docker Info ---'",
+    "docker info || echo 'docker info failed'",
+    "echo",
+    "echo '--- Docker Compose Version ---'",
+    "docker compose version || docker-compose version || echo 'docker compose not found'",
+    "echo",
+    "echo '--- /etc/docker/daemon.json ---'",
+    "cat /etc/docker/daemon.json || echo 'daemon.json not found'",
+    "echo",
+    "echo '--- docker-compose.yml (security lines) ---'",
+    "grep -n 'security_opt\\|read_only\\|tmpfs' /opt/app/docker-compose.yml || sed -n '1,200p' /opt/app/docker-compose.yml",
+    "echo",
+    "echo '--- IMDSv2: attempt WITHOUT token (should be 401) ---'",
+    "curl -sS -I http://169.254.169.254/latest/meta-data/iam/security-credentials/ || true",
+    "echo",
+    "echo '--- IMDSv2: WITH token (should be 200) ---'",
+    "TOKEN=$(curl -sS -X PUT http://169.254.169.254/latest/api/token -H 'X-aws-ec2-metadata-token-ttl-seconds: 21600' || true); echo TokenLength:${#TOKEN}; curl -sS -H \"X-aws-ec2-metadata-token: $TOKEN\" http://169.254.169.254/latest/meta-data/instance-id || true"
+  ]
+}

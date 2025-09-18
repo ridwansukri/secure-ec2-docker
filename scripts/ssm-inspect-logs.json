@@ -1,0 +1,15 @@
+{
+  "commands": [
+    "set -x",
+    "uname -a",
+    "cat /etc/system-release || true",
+    "rpm -q docker || true",
+    "command -v docker || true",
+    "systemctl is-enabled docker || true",
+    "systemctl is-active docker || true",
+    "journalctl -u docker --no-pager -n 100 || true",
+    "ls -l /etc/docker || true",
+    "cat /var/log/user-data-setup.log || true",
+    "tail -n 200 /var/log/cloud-init-output.log || true"
+  ]
+}
