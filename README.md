@@ -182,6 +182,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Website: [www.ridwansukri.com](https://www.ridwansukri.com)
 - GitHub: [@ridwansukri](https://github.com/ridwansukri)
 - LinkedIn: [Muh Ridwan Sukri](https://linkedin.com/in/ridwansukri)
+- Email: [contact@ridwansukri.com](mailto:contact@ridwansukri.com)
 
 ## 🙏 Acknowledgments
 - AWS documentation that guided this project:
