@@ -29,23 +29,8 @@ This repository showcases practical DevOps, Cloud, and Security from end‑to‑
 
 ---
 
-## Architecture (at a glance)
-```mermaid
-flowchart LR
-  Internet[[Internet]] --> IGW[Internet Gateway]
-  IGW --> PubSubnet[Public Subnet]
-  PubSubnet --> NAT[NAT Gateway]
-  Private[Private Subnet] -->|Outbound| NAT
-  EC2[EC2 Docker Host]:::srv --- Private
-  VPCE_SSM[SSM VPCE]:::vpce --- Private
-  VPCE_MSG[SSMMessages VPCE]:::vpce --- Private
-  VPCE_EC2M[EC2Messages VPCE]:::vpce --- Private
-  EC2 -.->|SSM| VPCE_SSM
-  EC2 -.->|Logs/Metrics| CW[(CloudWatch)]
-
-  classDef srv fill:#232F3E,color:#fff,stroke:#232F3E;
-  classDef vpce fill:#F58536,color:#fff,stroke:#F58536;
-```
+## Architecture
+![Secure EC2 Docker Architecture Diagram](/secure-ec2-Docker-Architecture-Diagram.png)
 
 ---
 
